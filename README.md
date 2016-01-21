@@ -3,9 +3,10 @@ A systemd service for reload ASUS NB WMI Driver after resume
 
 **Depends:**
 
- - `systemd` 
- - `sudo` 
+ - `bash`
  - `kmod`
+ - `sudo` 
+ - `systemd` 
 
 **License**
 
