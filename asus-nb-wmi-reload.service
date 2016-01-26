@@ -3,7 +3,8 @@ Description=Reload ASUS NB WMI Driver after resume
 After=suspend.target
 
 [Service]
-Type=simple
+User=root
+Type=oneshot
 ExecStart=/usr/bin/asus-nb-wmi-reload
 
 [Install]

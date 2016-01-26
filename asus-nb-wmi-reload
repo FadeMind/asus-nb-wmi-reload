@@ -1,3 +1,8 @@
 #!/bin/sh
-module=asus_nb_wmi
-echo "Reload ASUS NB WMI driver" && sudo rmmod $module && sudo modprobe $module
+lsmod|grep asus_nb_wmi &> /dev/null
+if [ $? -eq 0 ]; then
+    printf "Reloading asus_nb_wmi module..."
+    rmmod asus_nb_wmi && modprobe asus_nb_wmi
+else
+    printf "asus_nb_wmi module is not loaded!"
+fi
