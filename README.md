@@ -1,10 +1,16 @@
 # asus-nb-wmi-reload
-A systemd service for reload ASUS NB WMI Driver after resume
+
+Systemd service for reload Asus Notebooks WMI Hotkey Driver after resume for restoring light on WLAN LED.
+
+### ISSUE
+
+On ASUS devices with WLAN LED after resume from suspend WLAN LED status is not restored properly.<br/>
+Safer solution for now is unloading and loading `asus-nb-wmi` module via systemd service.
 
 **DEPENDS**
+
  - `bash`
  - `kmod`
- - `sudo` 
  - `systemd` 
 
 **ARCH LINUX INSTALLATION**
