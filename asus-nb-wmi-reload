@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 lsmod|grep asus_nb_wmi &> /dev/null
 if [ $? -eq 0 ]; then
     printf "Reloading asus_nb_wmi module..."

@@ -1,14 +1,16 @@
-SYSTEMDDIR=$(DESTDIR)/usr/lib/systemd/system
-BINDIR=$(DESTDIR)/usr/share/bin
+SYSTEMD_DIR=$(DESTDIR)/usr/lib/systemd/system
+BIN_DIR=$(DESTDIR)/usr/bin
+SERVICE_FILE=asus-nb-wmi-reload.service
+EXEC_FILE=asus-nb-wmi-reload
 
 all:
 
 install: local
 
 clear:
-	-rm -rf $(SYSTEMDDIR)asus-nb-wmi-reload.service
-	-rm -rf $(BINDIR)asus-nb-wmi-reload
+	-rm -rf $(SYSTEMD_DIR)$(SERVICE_FILE)
+	-rm -rf $(BIN_DIR)$(EXEC_FILE)
 local:
-	install -Dm644 asus-nb-wmi-reload.service $(SYSTEMDDIR)/asus-nb-wmi-reload.service
-	install -Dm755 asus-nb-wmi-reload         $(BINDIR)/asus-nb-wmi-reload
+	install -Dm644 $(SERVICE_FILE) $(SYSTEMD_DIR)/$(SERVICE_FILE)
+	install -Dm755 $(EXEC_FILE) $(BIN_DIR)/$(EXEC_FILE)
 uninstall: clear
