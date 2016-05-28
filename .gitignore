@@ -2,5 +2,6 @@
 !asus-nb-wmi-reload
 !asus-nb-wmi-reload.service
 !COPYING.GPL2
+!Makefile
 !README.md
 !.gitignore
