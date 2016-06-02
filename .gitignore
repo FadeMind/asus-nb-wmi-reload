@@ -1,4 +1,6 @@
 *
+!atk
+!atk.service
 !asus-nb-wmi-reload
 !asus-nb-wmi-reload.service
 !COPYING.GPL2

@@ -1,0 +1,10 @@
+[Unit]
+Description=ASUS NB WMI Driver Loader
+
+[Service]
+User=root
+Type=oneshot
+ExecStart=/usr/bin/atk
+
+[Install]
+WantedBy=multi-user.target
