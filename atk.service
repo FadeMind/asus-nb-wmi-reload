@@ -4,6 +4,8 @@ Description=ASUS NB WMI Driver Loader
 [Service]
 User=root
 Type=oneshot
+Restart=always
+RestartSec=3
 ExecStart=/usr/bin/atk
 
 [Install]
