@@ -3,7 +3,7 @@
 !asus-nb-wmi-reload.service
 !atk
 !atk.conf
-!atk.service
+!atk.desktop
 !COPYING.GPL2
 !.gitignore
 !Makefile
