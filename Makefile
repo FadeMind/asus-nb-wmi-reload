@@ -1,6 +1,8 @@
-SYSTEMD_DIR=$(DESTDIR)/usr/lib/systemd/system
-MODPROBED_DIR=$(DESTDIR)/usr/lib/modprobe.d
+SYSTEMD_DIR = $(DESTDIR)/usr/lib/systemd/system
+MODPROBED_DIR = $(DESTDIR)/usr/lib/modprobe.d
 RM = rm -rf
+INSTALL_BIN = install -Dm755
+INSTALL_STD = install -Dm644
 BIN_DIR=$(DESTDIR)/usr/bin
 SERVICE_FILE_ATK = atk.service
 SERVICE_FILE_WMI = asus-nb-wmi-reload.service
@@ -17,13 +19,12 @@ clear:
 	$(RM) $(SYSTEMD_DIR)/$(SERVICE_FILE_WMI)
 	$(RM) $(BIN_DIR)/$(EXEC_FILE_ATK)
 	$(RM) $(BIN_DIR)/$(EXEC_FILE_WMI)
-	$(MODPROBED_DIR)/$(ATK_FILE)
+	$(RM) $(MODPROBED_DIR)/$(ATK_FILE)
 local:
-	install -Dm644 $(SERVICE_FILE_ATK) $(SYSTEMD_DIR)/$(SERVICE_FILE_ATK)
-	install -Dm644 $(SERVICE_FILE_WMI) $(SYSTEMD_DIR)/$(SERVICE_FILE_WMI)
-	install -Dm755 $(EXEC_FILE_ATK) $(BIN_DIR)/$(EXEC_FILE_ATK)
-	install -Dm755 $(EXEC_FILE_WMI) $(BIN_DIR)/$(EXEC_FILE_WMI)
-	install -d $(MODPROBED_DIR)
-	echo "blacklist asus-nb-wmi" >> $(MODPROBED_DIR)/$(ATK_FILE)
+	$(INSTALL_STD) $(SERVICE_FILE_ATK) $(SYSTEMD_DIR)/$(SERVICE_FILE_ATK)
+	$(INSTALL_STD) $(SERVICE_FILE_WMI) $(SYSTEMD_DIR)/$(SERVICE_FILE_WMI)
+	$(INSTALL_BIN) $(EXEC_FILE_ATK) $(BIN_DIR)/$(EXEC_FILE_ATK)
+	$(INSTALL_BIN) $(EXEC_FILE_WMI) $(BIN_DIR)/$(EXEC_FILE_WMI)
+	$(INSTALL_STD) $(ATK_FILE) $(MODPROBED_DIR)/$(ATK_FILE)
 	
 uninstall: clear
