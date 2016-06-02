@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-sleep 3s && sudo modprobe asus-nb-wmi && sudo /usr/bin/hciconfig hci0 up
+sleep 5s && sudo modprobe asus-nb-wmi && sudo /usr/bin/hciconfig hci0 up
