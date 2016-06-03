@@ -1,5 +1,5 @@
 *
-!90-bluetooth.conf
+!90-bluetooth.rules
 !asus-nb-wmi-reload
 !asus-nb-wmi-reload.service
 !atk

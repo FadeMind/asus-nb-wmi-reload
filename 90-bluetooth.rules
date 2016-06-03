@@ -1,0 +1,1 @@
+ACTION=="add", KERNEL=="hci0", TEST=="/usr/bin/hciconfig", RUN+="/usr/bin/hciconfig hci0 up"
