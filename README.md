@@ -1,8 +1,7 @@
 # asus-nb-wmi-reload
 
-Systemd services for:
-- reload `asus-nb-wmi` after resume for restoring light on WLAN LED.
-- properly load `asus-nb-wmi` driver during boot with delay time and call bluetooth device ON.
+Systemd services for reload `asus-nb-wmi` after resume for restoring light on WLAN LED.
+Autostart desktop file for properly load `asus-nb-wmi` driver after finish boot with delay time for call bluetooth device ON.
 
 ### ISSUE
 
