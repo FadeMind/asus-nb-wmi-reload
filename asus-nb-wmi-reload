@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-lsmod|grep asus_nb_wmi &> /dev/null
+MODULE=asus_nb_wmi
+lsmod|grep $MODULE &> /dev/null
 if [ $? -eq 0 ]; then
-    printf "Reloading asus_nb_wmi module..."
-    rmmod asus_nb_wmi && modprobe asus_nb_wmi
+    modprobe -r -v $MODULE
+    sleep 3s
+    modprobe -v $MODULE
 else
-    printf "asus_nb_wmi module is not loaded!"
+    printf "$MODULE module is not loaded!"
 fi
