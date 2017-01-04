@@ -20,7 +20,7 @@ Sometimes bluetooth device is not available at all, so I blacklist `asus-nb-wmi`
 **ARCH LINUX INSTALLATION**
 
 ```
-yaourt -S asus-nb-wmi-reload-git && sudo systemctl enable asus-nb-wmi-reload
+yaourt -S asus-nb-wmi-reload-git
 ```
 
 **LICENSE**

@@ -2,10 +2,7 @@
 !90-bluetooth.rules
 !asus-nb-wmi-reload
 !asus-nb-wmi-reload.service
-!atk
-!atk.conf
-!atk.desktop
 !COPYING.GPL2
-!.gitignore
 !Makefile
 !README.md
+!.gitignore

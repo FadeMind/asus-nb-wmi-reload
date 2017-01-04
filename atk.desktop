@@ -1,7 +1,0 @@
-[Desktop Entry]
-Exec=/usr/bin/atk
-Icon=preferences-system-session-services
-NoDisplay=True
-StartupNotify=true
-Terminal=false
-Type=Application
