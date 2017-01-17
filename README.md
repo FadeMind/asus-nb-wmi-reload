@@ -27,3 +27,6 @@ yaourt -S asus-nb-wmi-reload-git
 **LICENSE**
 
 See `COPYING.GPL2` file for details.
+
+**REFERENCE**
+ - https://bugzilla.kernel.org/show_bug.cgi?id=64671
