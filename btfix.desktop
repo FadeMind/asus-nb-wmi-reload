@@ -1,0 +1,19 @@
+[Desktop Entry]
+Comment[pl_PL]=
+Comment=
+Exec=btfix
+GenericName[pl_PL]=
+GenericName=
+Icon=network-bluetooth
+MimeType=
+Name[pl_PL]=btfix
+Name=btfix
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

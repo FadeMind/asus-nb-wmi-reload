@@ -2,6 +2,9 @@
 !90-bluetooth.rules
 !asus-nb-wmi-reload
 !asus-nb-wmi-reload.service
+!blacklist_btusb.conf
+!btfix
+!btfix.desktop
 !COPYING.GPL2
 !Makefile
 !README.md
