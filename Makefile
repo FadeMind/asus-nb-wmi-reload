@@ -2,7 +2,7 @@
 
 PREFIX = /usr
 BIN_DIR = $(DESTDIR)/$(PREFIX)/bin
-MODPROBED_DIR = $(DESTDIR)/$(PREFIX)/modprobe.d
+MODPROBED_DIR = $(DESTDIR)/etc/modprobe.d
 SYSTEMD_DIR = $(DESTDIR)/$(PREFIX)/lib/systemd/system
 UDEV_DIR = $(DESTDIR)/$(PREFIX)/udev/rules.d
 XDG_AUTOSTART_DIR = $(DESTDIR)/etc/xdg/autostart
