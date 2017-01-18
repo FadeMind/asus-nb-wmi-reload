@@ -5,7 +5,9 @@ if [ $? -eq 0 ]; then
     modprobe -r -v $MODULE
     sleep 3s
     modprobe -v $MODULE
-    modprobe -v btusb
 else
     printf "$MODULE module is not loaded!"
 fi
+
+modprobe -r -v btusb;modprobe -v btusb
+modprobe -r -v psmouse;modprobe -v psmouse

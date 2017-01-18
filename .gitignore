@@ -4,7 +4,6 @@
 !asus-nb-wmi-reload.service
 !btfix
 !btfix.desktop
-!btusb_blacklist.conf
 !COPYING.GPL2
 !Makefile
 !README.md

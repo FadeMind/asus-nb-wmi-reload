@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-sudo modprobe -v btusb
+modprobe -r -v btusb;sleep 3s;modprobe -v btusb
