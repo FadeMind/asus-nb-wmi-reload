@@ -12,7 +12,6 @@ INSTALL_BIN = install -Dm755
 INSTALL_STD = install -Dm644
 
 BTFIX_FILE_AUTOSTART = btfix.desktop
-BTFIX_FILE_CONF = btusb_blacklist.conf
 BTFIX_FILE_EXE = btfix
 BTFIX_FILE_UDEV = 90-bluetooth.rules
 SERVICE_FILE_WMI = asus-nb-wmi-reload.service
