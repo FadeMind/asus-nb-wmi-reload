@@ -1,36 +1,29 @@
 #!/usr/bin/make -f
 
-PREFIX = /usr
-BIN_DIR = $(DESTDIR)/$(PREFIX)/bin
-SYSTEMD_DIR = $(DESTDIR)/$(PREFIX)/lib/systemd/system
-UDEV_DIR = $(DESTDIR)/$(PREFIX)/udev/rules.d
-XDG_AUTOSTART_DIR = $(DESTDIR)/etc/xdg/autostart
+PREFIX          =   /usr
+BIN_PATH        =   $(DESTDIR)/$(PREFIX)/bin
+SYSTEMD_PATH    =   $(DESTDIR)/$(PREFIX)/lib/systemd/system
+UDEV_PATH       =   $(DESTDIR)/$(PREFIX)/udev/rules.d
+XDG_PATH        =   $(DESTDIR)/etc/xdg/autostart
+DEL             =   rm -rf
+INS_BIN         =   install -Dm755
+INS_STD         =   install -Dm644
+BTFIX_DESKTOP   =   btfix.desktop
+BTFIX_EXE       =   btfix
+BTFIX_UDEV      =   90-bluetooth.rules
+SERVICE_WMI     =   asus-nb-wmi-reload.service
+WMI_EXE         =   asus-nb-wmi-reload
 
-RM = rm -rf
-CP = cp -Rf
-INSTALL_BIN = install -Dm755
-INSTALL_STD = install -Dm644
+install:
+    $(INS_BIN) $(BTFIX_EXE)     $(BIN_PATH)/$(BTFIX_EXE)
+    $(INS_BIN) $(WMI_EXE)       $(BIN_PATH)/$(WMI_EXE)
+    $(INS_STD) $(BTFIX_DESKTOP) $(XDG_PATH)/$(BTFIX_DESKTOP)
+    $(INS_STD) $(BTFIX_UDEV)    $(UDEV_PATH)/$(BTFIX_UDEV)
+    $(INS_STD) $(SERVICE_WMI)   $(SYSTEMD_PATH)/$(SERVICE_WMI)
 
-BTFIX_FILE_AUTOSTART = btfix.desktop
-BTFIX_FILE_EXE = btfix
-BTFIX_FILE_UDEV = 90-bluetooth.rules
-SERVICE_FILE_WMI = asus-nb-wmi-reload.service
-WMI_FILE_EXE = asus-nb-wmi-reload
-
-
-install: local
-
-clear:
-	$(RM) $(BIN_DIR)/$(BTFIX_FILE_EXE)
-	$(RM) $(BIN_DIR)/$(WMI_FILE_EXE)
-	$(RM) $(SYSTEMD_DIR)/$(SERVICE_FILE_WMI)
-	$(RM) $(UDEV_DIR)/$(BTFIX_FILE_UDEV)
-	$(RM) $(XDG_AUTOSTART_DIR)/$(BTFIX_FILE_AUTOSTART)
-local:	
-	$(INSTALL_BIN) $(BTFIX_FILE_EXE) $(BIN_DIR)/$(BTFIX_FILE_EXE)
-	$(INSTALL_BIN) $(WMI_FILE_EXE) $(BIN_DIR)/$(WMI_FILE_EXE)
-	$(INSTALL_STD) $(BTFIX_FILE_AUTOSTART) $(XDG_AUTOSTART_DIR)/$(BTFIX_FILE_AUTOSTART)
-	$(INSTALL_STD) $(BTFIX_FILE_UDEV) $(UDEV_DIR)/$(BTFIX_FILE_UDEV)
-	$(INSTALL_STD) $(SERVICE_FILE_WMI) $(SYSTEMD_DIR)/$(SERVICE_FILE_WMI)
-	
-uninstall: clear
+uninstall:
+    $(DEL) $(BIN_PATH)/$(BTFIX_EXE)
+    $(DEL) $(BIN_PATH)/$(WMI_EXE)
+    $(DEL) $(SYSTEMD_PATH)/$(SERVICE_WMI)
+    $(DEL) $(UDEV_PATH)/$(BTFIX_UDEV)
+    $(DEL) $(XDG_PATH)/$(BTFIX_DESKTOP)
