@@ -1,5 +1,5 @@
 [Unit]
-Description=Reload ASUS NB WMI Driver after resume
+Description=Reloading Asus Notebooks WMI Hotkey Driver after resume
 After=suspend.target
 
 [Service]

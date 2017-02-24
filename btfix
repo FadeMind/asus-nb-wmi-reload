@@ -1,2 +1,35 @@
 #!/usr/bin/env bash
-modprobe -r -v btusb;sleep 3s;modprobe -v btusb
+MP=/usr/bin/modprobe
+SL=/usr/bin/sleep
+BTU=btusb
+
+function reload() {
+    lsmod|grep $BTU &> /dev/null
+    if [ $? -eq 0 ]; then
+        $MP -r -v $BTU
+        $SL 3s
+        $MP -v $BTU
+    else
+        printf "ERROR: $BTU module is not loaded!"
+    fi
+}
+
+function check_modprobe() {
+    if [ -f "$MP" ] ;  then 
+        check_sleep
+    else
+        printf "ERROR: $MP tool is not installed!"
+        exit 0
+    fi
+}
+
+function check_sleep() {
+    if [ -f "$SL" ] ;  then 
+        reload
+    else
+        printf "ERROR: $SL tool is not installed!"
+        exit 0
+    fi
+}
+
+check_modprobe

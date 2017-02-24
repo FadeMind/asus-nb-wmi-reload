@@ -1,10 +1,10 @@
 #!/usr/bin/make -f
 
 PREFIX          =   /usr
-BIN_PATH        =   $(DESTDIR)/$(PREFIX)/bin
-SYSTEMD_PATH    =   $(DESTDIR)/$(PREFIX)/lib/systemd/system
-UDEV_PATH       =   $(DESTDIR)/$(PREFIX)/udev/rules.d
-XDG_PATH        =   $(DESTDIR)/etc/xdg/autostart
+BIN_PATH        =   $(DESTDIR)$(PREFIX)/bin
+SYSTEMD_PATH    =   $(DESTDIR)$(PREFIX)/lib/systemd/system
+UDEV_PATH       =   $(DESTDIR)$(PREFIX)/udev/rules.d
+XDG_PATH        =   $(DESTDIR)etc/xdg/autostart
 DEL             =   rm -rf
 INS_BIN         =   install -Dm755
 INS_STD         =   install -Dm644

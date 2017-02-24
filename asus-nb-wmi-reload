@@ -1,12 +1,44 @@
 #!/usr/bin/env bash
-MODULE=asus_nb_wmi
-lsmod|grep $MODULE &> /dev/null
-if [ $? -eq 0 ]; then
-    modprobe -r -v $MODULE
-    sleep 3s
-    modprobe -v $MODULE
-else
-    printf "$MODULE module is not loaded!"
-fi
+MP=/usr/bin/modprobe
+SL=/usr/bin/sleep
+ASW=asus_nb_wmi
+BTU=btusb
 
-modprobe -r -v btusb;modprobe -v btusb
+function reload() {
+    lsmod|grep $ASW &> /dev/null
+    if [ $? -eq 0 ]; then
+        $MP -r -v $ASW
+        $SL 3s
+        $MP -v $ASW
+    else
+        printf "ERROR: $ASW module is not loaded!"
+    fi
+    lsmod|grep $BTU &> /dev/null
+    if [ $? -eq 0 ]; then
+        $MP -r -v $BTU
+        $SL 3s
+        $MP -v $BTU
+    else
+        printf "ERROR: $BTU module is not loaded!"
+    fi
+}
+
+function check_modprobe() {
+    if [ -f "$MP" ] ;  then 
+        check_sleep
+    else
+        printf "ERROR: $MP tool is not installed!"
+        exit 0
+    fi
+}
+
+function check_sleep() {
+    if [ -f "$SL" ] ;  then 
+        reload
+    else
+        printf "ERROR: $SL tool is not installed!"
+        exit 0
+    fi
+}
+
+check_modprobe
